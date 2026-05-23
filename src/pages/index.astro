@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Masthead from '../components/Masthead.astro';
+import DashboardMock from '../components/DashboardMock.astro';
+import Features from '../components/Features.astro';
+import AccessNote from '../components/AccessNote.astro';
+import Foot from '../components/Foot.astro';
+---
+
+<BaseLayout title="Hunch · Trader Brain — by 72mn">
+  <div class="page-shell">
+    <Masthead />
+
+    <section class="dashboard-band">
+      <DashboardMock />
+      <p class="mono dashboard-caption">
+        Fig. 01 · editorial dashboard · /broker-connect/dashboard
+      </p>
+    </section>
+
+    <Features />
+    <AccessNote />
+    <Foot />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dashboard-band {
+    padding: 40px 56px 64px;
+  }
+
+  .dashboard-caption {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 12px 0 0;
+  }
+
+  @media (max-width: 1024px) {
+    .dashboard-band { padding: 32px 32px 48px; }
+  }
+
+  @media (max-width: 640px) {
+    .dashboard-band { padding: 24px 20px 40px; }
+  }
+</style>

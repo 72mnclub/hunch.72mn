@@ -1,0 +1,156 @@
+---
+const heat = [
+  'u2','u3','d2','u1','u4',
+  'u1','u3','u4','u2','d1',
+  'd2','u2','u3','u4','u3',
+  'u1','d1','u2','u3','u4',
+  'd1','u2','u3','u2','u3',
+];
+
+const leaderboard: [string, string, 'u' | 'd'][] = [
+  ['$NVDA', '+4.2R', 'u'],
+  ['$SPY',  '+2.7R', 'u'],
+  ['$TSLA', '+1.1R', 'u'],
+  ['$META', '−0.6R', 'd'],
+  ['$AAPL', '−0.9R', 'd'],
+];
+---
+
+<div class="mock dashboard-mock">
+  <div class="mock-title">
+    <span class="mock-dots"><i></i><i></i><i></i></span>
+    <span style="margin-left: 8px">trader brain · dashboard</span>
+  </div>
+
+  <div class="mock-row">
+    <aside class="mock-side">
+      <div class="group">Editorial</div>
+      <div class="item active">Dashboard</div>
+      <div class="item dim">Leaderboard</div>
+      <div class="item dim">Heatmap</div>
+      <div class="group">Journals</div>
+      <div class="item dim">Daily</div>
+      <div class="item dim">Trades</div>
+      <div class="item dim">Regime</div>
+    </aside>
+
+    <div class="mock-main">
+      <div class="dash-header">
+        <div>
+          <div class="dash-vol">Vol II · Issue 21</div>
+          <div class="mock-h dash-title">Trader's Almanac</div>
+        </div>
+        <div class="mono dash-range">04/21 — 05/21 · 25 sessions</div>
+      </div>
+
+      <div class="dash-grid">
+        <section>
+          <div class="dash-section-label">P&amp;L heatmap</div>
+          <div class="heat dash-heat">
+            {heat.map((c) => <i class={c}></i>)}
+          </div>
+          <div class="mono dash-days">
+            <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span>
+          </div>
+        </section>
+        <section>
+          <div class="dash-section-label">Leaderboard · top tickers</div>
+          <div class="dash-leaderboard">
+            {leaderboard.map(([t, r, d]) => (
+              <div class="dash-row">
+                <span>{t}</span>
+                <span class={d === 'u' ? 'up' : 'down'}>{r}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dashboard-mock {
+    height: 420px;
+  }
+
+  .mock-row { height: calc(100% - 38px); }
+
+  .dash-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--d-hair);
+    padding-bottom: 12px;
+  }
+
+  .dash-vol {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--d-muted);
+    text-transform: uppercase;
+  }
+
+  .dash-title {
+    font-size: 22px;
+    margin-top: 4px;
+  }
+
+  .dash-range {
+    font-size: 11px;
+    color: var(--d-muted);
+  }
+
+  .dash-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 8px;
+  }
+
+  .dash-section-label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--d-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .dash-heat {
+    grid-template-columns: repeat(5, 1fr);
+    height: 110px;
+  }
+
+  .dash-days {
+    font-size: 10px;
+    color: var(--d-muted);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .dash-leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+  }
+
+  .dash-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--d-hair);
+    padding-bottom: 4px;
+  }
+
+  .dash-row .up { color: var(--d-up); }
+  .dash-row .down { color: var(--d-down); }
+
+  @media (max-width: 768px) {
+    .dashboard-mock { height: 540px; }
+    .dash-grid { grid-template-columns: 1fr; }
+  }
+</style>

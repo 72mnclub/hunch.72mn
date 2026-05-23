@@ -1,0 +1,91 @@
+---
+// "No CTA for now" — keeping the access section's messaging and visual closure,
+// but replacing the email-capture form with a quiet mailto link.
+---
+
+<section id="access" class="access">
+  <div class="access-grid">
+    <div class="access-copy">
+      <div class="kicker">Status · Private beta</div>
+      <h2 class="access-h2">Request access.</h2>
+      <p class="lede dim access-lede">
+        We're onboarding a small group of full-time and serious part-time traders.
+        One Mac, one vault, one short call before access.
+      </p>
+    </div>
+
+    <div class="access-contact">
+      <a href="mailto:hello@72mn.com?subject=Hunch%20%C2%B7%20Trader%20Brain%20%E2%80%94%20Access%20request" class="btn access-btn">
+        Get in touch →
+      </a>
+      <p class="mono access-fine">
+        macOS 13+ · IBKR account required for trade sync · vault works without one
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .access {
+    padding: 88px 56px;
+    border-top: 1px solid var(--hair);
+    background: var(--paper-2);
+  }
+
+  .access-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .access-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .access-h2 {
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .access-lede {
+    font-size: 15px;
+  }
+
+  .access-contact {
+    padding-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .access-btn {
+    /* inherits .btn — rectangular, ink-fill */
+    padding: 14px 22px;
+  }
+
+  .access-fine {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .access { padding: 64px 32px; }
+    .access-grid { grid-template-columns: 1fr; gap: 32px; }
+    .access-h2 { font-size: 32px; }
+  }
+
+  @media (max-width: 640px) {
+    .access { padding: 48px 20px; }
+  }
+</style>
